@@ -8,3 +8,4 @@ How to run the web app:
 - Navigate to localhost:8080 in the browser of your choice (I recommend using a current version of Microsoft Edge, Mozilla Firefox or Google Chrome).
 
 Images used for the background are public domain images sourced from https://www.pexels.com/
+Feel free to do what you want with this, but I'd love to hear from you if you plan to use anything I've produced.
