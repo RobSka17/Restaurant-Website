@@ -1,0 +1,192 @@
+<html>
+    <head>
+        <title>Your Restaurant</title>
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+
+
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+
+        <style>
+            .menuButton {
+                border: none;
+                padding: 4px;
+                text-align: left;
+                min-width: 100%;
+                color: white;
+                background-color: rgba(0, 0, 0, 0);
+            }
+
+            .menuButton:hover {
+                color: black;
+                background-color: rgba(255, 255, 255, 0.85);
+            }
+        </style>
+        <script>
+            var foodDroppedDown = false;
+            var drinksDroppedDown = false;
+            function main() {
+                $("#homeButton").on("click", function(e) {
+                    window.location = "/";
+                });
+                $("#whereareweButton").on("click", function(e) {
+                    window.location = "/wherearewe";
+                });
+                $("#aboutusButton").on("click", function(e) {
+                    window.location = "/aboutus";
+                });
+                $("#reservationButton").on("click", function(e) {
+                    window.location = "/makeareservation";
+                });
+                $("#foodButton").on("click", function(e) {
+                    if(!foodDroppedDown) {
+                        foodDroppedDown = true;
+                        $("#foodDropdown").slideDown("fast");
+                    }
+                    else {
+                        foodDroppedDown = false;
+                        $("#foodDropdown").slideUp("fast");
+                    }
+                });
+                $("#drinksButton").on("click", function(e) {
+                    if(!drinksDroppedDown) {
+                        drinksDroppedDown = true;
+                        $("#drinksDropdown").slideDown("fast");
+                    }
+                    else {
+                        drinksDroppedDown = false;
+                        $("#drinksDropdown").slideUp("fast");
+                    }
+                });
+            }
+
+            var imgNum = -1;
+            function changeBackground() {
+                if(imgNum > -1 && imgNum < 6) {
+                    imgNum++;
+                }
+                else {
+                    if(imgNum == -1) {
+                        imgNum = 1;
+                    }
+                    else {
+                        imgNum = 0;
+                    }
+                }
+                switch(imgNum) {
+                    case 0:
+                        $("#backgroundImage7").fadeOut(2500);
+                        $("#backgroundImage1").fadeIn(2500);
+                        break;
+                    case 1:
+                        $("#backgroundImage1").fadeOut(2500);
+                        $("#backgroundImage2").fadeIn(2500);
+                        break;
+                    case 2:
+                        $("#backgroundImage2").fadeOut(2500);
+                        $("#backgroundImage3").fadeIn(2500);
+                    break;
+                    case 3:
+                        $("#backgroundImage3").fadeOut(2500);
+                        $("#backgroundImage4").fadeIn(2500);
+                    break;
+                    case 4:
+                        $("#backgroundImage4").fadeOut(2500);
+                        $("#backgroundImage5").fadeIn(2500);
+                    break;
+                    case 5:
+                        $("#backgroundImage5").fadeOut(2500);
+                        $("#backgroundImage6").fadeIn(2500);
+                    break;
+                    case 6:
+                        $("#backgroundImage6").fadeOut(2500);
+                        $("#backgroundImage7").fadeIn(2500);
+                    break;
+                }
+            }
+            setInterval(changeBackground, 8000);
+        </script>
+    </head>
+    <body onload="main()">
+        <div style="width: 100%; overflow-x: hidden; overflow-y: hidden;">
+            <img id="backgroundImage1" src="../images/pexels-valeria-boltneva-1484516.jpg" style="width: inherit; position: absolute; object-fit: contain; z-index: -1;">
+            <img id="backgroundImage2" src="../images/pexels-jorge-zapata-1398688.jpg" style="width: inherit; position: absolute; z-index: -1; display: none;">
+            <img id="backgroundImage3" src="../images/pexels-engin-akyurt-2619967.jpg" style="width: inherit; position: absolute; z-index: -1; display: none;">
+            <img id="backgroundImage4" src="../images/pexels-elevate-1267342.jpg" style="width: inherit; position: absolute; z-index: -1; display: none;">
+            <img id="backgroundImage5" src="../images/pexels-elevate-1267359.jpg" style="width: inherit; position: absolute; z-index: -1; display: none;">
+            <img id="backgroundImage6" src="../images/pexels-erin-wang-1647163.jpg" style="width: inherit; position: absolute; z-index: -1; display: none;">
+            <img id="backgroundImage7" src="../images/pexels-alexander-dummer-132694.jpg" style="width: inherit; position: absolute; z-index: -1; display: none;">
+            <div class="row">
+                <div class="col-sm-3" style="padding-left: 32px;">
+                    <div class="container" style="background-color: rgba(0, 0, 0, 0.7);">
+                        <div style="border-bottom: white solid; border-width: 2px; padding: 24px;">
+                            <img src="../images/restaurantlogo_fade.png" style="width: 250px; height: 250px;">
+                        </div>
+                        <div style="padding-top: 24px; padding-bottom: 32px; text-align: center;">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <button id="homeButton" type="button" class="menuButton"><i class="fa fa-home" aria-hidden="true"></i> Home</button>
+                            </li>
+                            <li class="nav-item">
+                                <button id="aboutusButton" type="button" class="menuButton"><i class="fa fa-question" aria-hidden="true"></i> About Us</button>
+                            </li>
+                            <li class="nav-item">
+                                <button id="whereareweButton" type="button" class="menuButton"><i class="fa fa-map" aria-hidden="true"></i> Where Are We?</button>
+                            </li>
+                            <li class="nav-item">
+                                <button id="reservationButton" type="button" class="menuButton"><i class="fa fa-book" aria-hidden="true"></i> Make a Reservation</button>
+                            </li>
+                            <li class="nav-item">
+                                <button id="foodButton" type="button" class="menuButton"><i class="fa fa-cutlery" aria-hidden="true"></i> Food</button>
+                                <div id="foodDropdown" style="display: none;">
+                                    <ul>
+                                        <li><button class='menuButton'>Sandwiches</button></li>
+                                        <li><button class='menuButton'>Pasta</button></li>
+                                        <li><button class='menuButton'>Pizza</button></li>
+                                        <li><button class='menuButton'>Rice</button></li>
+                                        <li><button class='menuButton'>Desserts</button></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <button id="drinksButton" type="button" class="menuButton"><i class="fa fa-glass" aria-hidden="true"></i> Drinks</button>
+                                <div id="drinksDropdown" style="display: none;">
+                                    <ul>
+                                        <li><button class='menuButton'>Wines</button></li>
+                                        <li><button class='menuButton'>Beers</button></li>
+                                        <li><button class='menuButton'>Spirits</button></li>
+                                        <li><button class='menuButton'>Cocktails</button></li>
+                                        <li><button class='menuButton'>Soft Drinks</button></li>
+                                        <li><button class='menuButton'>Hot Drinks</button></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <br>
+                        <div class="grid-container" style="display: grid; grid-template-columns: auto auto auto;">
+                            <div class="grid-item">
+                                <a href="https://www.tripadvisor.co.uk/"><i class="fa fa-tripadvisor" aria-hidden="true" style="color: white;"></i></a>
+                            </div>
+                            <div class="grid-item">
+                                <a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true" style="color: white;"></i></a>
+                            </div>
+                            <div class="grid-item">
+                                <a href="https://twitter.com/"><i class="fa fa-twitter" aria-hidden="true" style="color: white"></i></a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <br>
+                    <div class="container" style="background-color: rgba(0, 0, 0, 0.7); color: white; padding: 24px;">
+                        <div>
+                            <h2>Where Are We?</h2>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9555253.804673107!2d-13.429497942736987!3d54.21857492759614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x25a3b1142c791a9%3A0xc4f8a0433288257a!2sUnited%20Kingdom!5e0!3m2!1sen!2suk!4v1618675235809!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </body>
+</html>

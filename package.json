@@ -1,0 +1,14 @@
+{
+    "name": "restaurantwebsite",
+    "description": "A restaurant website design created in Node.js.",
+    "author": "Rob Scargill",
+    "private": "true",
+    "engines": {
+        "node": ">= 14.0.0"
+    },
+    "dependencies": {
+        "bootstrap": "^4.6.0",
+        "express": "^4.17.1",
+        "jquery": "^3.6.0"
+    }
+}
